@@ -1,0 +1,12 @@
+{% extends "layout.html"%}
+
+{% block main %}
+<h1>Get a Quote</h1>
+    <form action="/quote" class="form-control" method="post">
+        <br>
+        <input type="text" name="symbol" placeholder="Stock Symbol (NFLX, AAPL, GOOG)" class="form-control" autocomplete="off" required>
+        <br>
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+{% endblock %}

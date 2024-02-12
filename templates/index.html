@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block main %}
+    <h2 style="text-align:left; font-size: medium">Hello, {{ user }}</h2>
+
+    <br>
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>Total Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for symbol, shares in qty.items() %}
+                    <tr>
+                        <td>{{ symbol }}</td>
+                        <td>{{ shares }}</td>
+                        <td>{{ prices.get(symbol, 'N/A') | usd }}</td>
+                        <td>{{ stock_values.get(symbol, 0) | usd }}</td>
+                    </tr>
+                {% endfor %}
+                <tr>
+                    <th colspan="3" style="text-align:right; font-weight:bold;">Cash</th>
+                    <th>
+                        <p>{{ balance | usd }}</p>
+                    </th>
+                </tr>
+                <tr>
+                    <th colspan="3" style="text-align:right; font-weight:bold;">TOTAL VALUE</th>
+                    <th>{{ total_portfolio_value | usd }}</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

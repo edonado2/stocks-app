@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<h1>Available Balance</h1>
+<p style="text-align:right; font-size:large; padding:10px; font-weight:bold;"> {{ balance | usd }} </p>
+<div class="container">
+<form action="/buy" method="post" class="form-control">
+    <label for="symbol">Stock Symbol</label>
+    <br>
+    <input type="text" name="symbol" placeholder="Stock Symbol (NFLX, AAPL, GOOG)" class="form-control" autocomplete="off">
+    <label for="number">Amount of shares to purchase</label>
+    <br>
+    <input type="number" name="shares" placeholder="Number of shares to purchase" class="form-control" >
+    <br>
+    <button type="submit" class="btn btn-primary">Buy</button>
+</form>
+</div>
+{% endblock %}

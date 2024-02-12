@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <div class="container"></div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>{{ sym.symbol }}</th>
+                <th>{{ sym.price |usd }}</th>
+            </tr>
+        </tbody>
+    </table>
+
+{% endblock %}
